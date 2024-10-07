@@ -4,18 +4,15 @@ import { Overlay } from "react-bootstrap";
 
 export default function FormSelect({
   selectedToken,
-  selectedSecondToken,
   setSelectedToken,
+  selectedToken2,
   visible,
   erc20Tokens,
-  styleClass,
-  activeStyleClass,
-  active = false,
 }) {
   const target = useRef(null);
   const [sortedOptions, setSortedOptions] = useState([]);
   const [optionsShow, setOptionsShow] = useState(false);
-  const [sortCriteria, setSortCriteria] = useState("alphabetical");
+
   const SelectOptions = ({
     placement: _placement,
     arrowProps: _arrowProps,
@@ -39,7 +36,7 @@ export default function FormSelect({
   useEffect(() => {
     let Options = [];
     for (let token of erc20Tokens) {
-      if (token.symbol !== selectedSecondToken.symbol)
+      if (token.symbol !== selectedToken2.symbol)
         Options.push(
           <div
             className={classnames(
@@ -61,7 +58,7 @@ export default function FormSelect({
         );
     }
     setSortedOptions(Options);
-  }, [erc20Tokens, sortCriteria, selectedToken, selectedSecondToken]);
+  }, [erc20Tokens, selectedToken, selectedToken2]);
 
   const handleOptionsShow = () => {
     console.log(optionsShow);
@@ -74,9 +71,7 @@ export default function FormSelect({
 
   return (
     <div
-      className={classnames(active ? activeStyleClass : styleClass, "d-flex", {
-        "d-none": !visible,
-      })}
+      className={"styleClass"}
       onClick={handleOptionsShow}
       type="button"
       role="button"

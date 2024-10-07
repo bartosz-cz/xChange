@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import CreateTrade from "./CreateTrade";
-import { useCrypto } from "../../utils/CryptoPrices";
-import TradeList from "./TradeList";
+import CreateSwap from "./CreateSwap";
+import useCrypto from "../../../hooks/useCrypto";
+import SwapList from "./SwapList";
 import classnames from "classnames";
 
-function Trades({ token1, token2, settings, setSettings }) {
+function SwapsManagement({ token1, token2, setPopUp }) {
   const { cryptoPrices, loadingRef } = useCrypto();
   const [swaps, setSwaps] = useState([]);
   const parentRef = useRef(null);
@@ -14,8 +14,6 @@ function Trades({ token1, token2, settings, setSettings }) {
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         if (entry.target === parentRef.current.firstChild) {
-          console.log("setttt change");
-          console.log(parentRef.current.lastChild);
           setWidth(entry.contentRect.width + 30);
         }
       }
@@ -39,7 +37,7 @@ function Trades({ token1, token2, settings, setSettings }) {
         "trades"
       )}
     >
-      <CreateTrade
+      <CreateSwap
         cryptoPrices={cryptoPrices}
         loadingRef={loadingRef}
         token1={token1}
@@ -47,12 +45,11 @@ function Trades({ token1, token2, settings, setSettings }) {
         swaps={swaps}
         setSwaps={setSwaps}
         width={width}
-        settings={settings}
-        setSettings={setSettings}
-      ></CreateTrade>
-      <TradeList swaps={swaps} width={width} />
+        setPopUp={setPopUp}
+      />
+      <SwapList swaps={swaps} width={width} />
     </div>
   );
 }
 
-export default Trades;
+export default SwapsManagement;

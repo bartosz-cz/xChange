@@ -1,11 +1,7 @@
-import IconButton from "../ui/IconButton";
 import React from "react";
 import { useState, useEffect } from "react";
-import Icons from "../ui/Icons";
-import WalletsWindow from "./WalletsWindow";
-import HeaderPricePanel from "./HeaderPricePanel";
-import LineChart from "../ui/lineChart";
-import { useCrypto } from "../../utils/CryptoPrices";
+import LineChart from "../../../components/shared/LineChart";
+import useCrypto from "../../../hooks/useCrypto";
 import ChartMenu from "./ChartMenu";
 var classnames = require("classnames");
 
@@ -99,15 +95,13 @@ export default function ChartContainer({ token }) {
         data={data.values}
         labels={data.timestamps}
         color={color}
-      ></LineChart>
+      />
       <ChartMenu
         token={token}
         data={data.values}
         rangeSelected={rangeSelected}
         setRangeSelected={setRangeSelected}
-      >
-        {" "}
-      </ChartMenu>
+      />
     </div>
   );
 }

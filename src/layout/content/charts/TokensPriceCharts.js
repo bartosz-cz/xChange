@@ -1,11 +1,9 @@
-import IconButton from "../ui/IconButton";
 import React from "react";
-import { useState } from "react";
 import ChartContainer from "./ChartContainer";
 
 var classnames = require("classnames");
 
-export default function TradeTokensCharts({ token1, token2 }) {
+export default function TokensPriceCharts({ token1, token2 }) {
   return (
     <div
       className={classnames(
@@ -17,9 +15,9 @@ export default function TradeTokensCharts({ token1, token2 }) {
         "tradeTokensCharts"
       )}
     >
-      <ChartContainer token={token1}></ChartContainer>
+      <ChartContainer token={token1} />
       <div style={{ height: 10 }}></div>
-      <ChartContainer token={token2}></ChartContainer>
+      <ChartContainer token={token2} />
     </div>
   );
 }

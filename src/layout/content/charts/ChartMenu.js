@@ -1,6 +1,6 @@
 import React from "react";
 
-import Icons from "../ui/Icons";
+import Icons from "../../../components/shared/Icon";
 
 var classnames = require("classnames");
 

@@ -1,5 +1,5 @@
 let providers = [];
-export function WalletsInfoListener() {
+export function walletsListener() {
   window.addEventListener("eip6963:announceProvider", (event) => {
     providers.push(event.detail);
   });
@@ -8,6 +8,6 @@ export function WalletsInfoListener() {
   return providers;
 }
 
-export function getWalletsInfo() {
+export function getWalletsList() {
   return providers;
 }

@@ -1,13 +1,12 @@
-import IconButton from "../ui/IconButton";
+import IconButton from "../components/shared/IconButton";
 import React from "react";
 import { useState, useEffect } from "react";
-import FormSelect from "../ui/FormSelect";
-import Icons from "../ui/Icons";
-import { useCrypto } from "../../utils/CryptoPrices";
+import FormSelect from "../components/shared/FormSelect";
+import useCrypto from "../hooks/useCrypto";
 
 var classnames = require("classnames");
 
-export default function Search({
+export default function TokensSelect({
   selectedToken1,
   setSelectedToken1,
   selectedToken2,
@@ -64,48 +63,39 @@ export default function Search({
         onClick={() => mouseHandler(true)}
         tooltipActive={false}
         styleClass={"searchButton"}
-        activeStyleClass={"buttonActive"}
-        size={32}
         visible={!expanded}
-      ></IconButton>
+      />
       <IconButton
         name={"BackArrow"}
         onClick={() => mouseHandler(false)}
         tooltipActive={false}
         styleClass={"BackButton"}
-        activeStyleClass={"buttonActive"}
-        size={32}
         visible={expanded}
-      ></IconButton>
+      />
       <div style={{ width: 30 }}></div>
       <FormSelect
         visible={expanded}
-        styleClass={"selectCrypto"}
-        activeStyleClass={"selectCryptoActive"}
         selectedToken={selectedToken1}
         setSelectedToken={setSelectedToken1}
-        selectedSecondToken={selectedToken2}
+        selectedToken2={selectedToken2}
         erc20Tokens={erc20Tokens}
-      ></FormSelect>
+      />
       <div style={{ width: 20 }}></div>
-      <div
-        type="button"
-        role="button"
+      <IconButton
+        name={"Swap"}
         onClick={reverseHandler}
-        className={classnames({ "d-none": !expanded })}
-      >
-        <Icons name={"Swap"} size={32} />
-      </div>
+        tooltipActive={false}
+        styleClass={""}
+        visible={expanded}
+      />
       <div style={{ width: 20 }}></div>
       <FormSelect
         visible={expanded}
-        styleClass={"selectCrypto"}
-        activeStyleClass={"selectCryptoActive"}
         selectedToken={selectedToken2}
         setSelectedToken={setSelectedToken2}
-        selectedSecondToken={selectedToken1}
+        selectedToken2={selectedToken1}
         erc20Tokens={erc20Tokens}
-      ></FormSelect>
+      />
       <div style={{ width: 30 }}></div>
     </div>
   );
