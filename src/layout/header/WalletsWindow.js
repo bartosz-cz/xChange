@@ -1,18 +1,14 @@
-// src/components/WalletsWindow.js
-
 import React, { useState, useEffect } from "react";
-import IconButton from "../ui/IconButton";
-import Icons from "../ui/Icons";
+import IconButton from "../../components/shared/IconButton";
+import Icons from "../../components/shared/Icon";
 import classnames from "classnames";
-import { getWalletsInfo } from "../../utils/getWalletsInfo";
+import { getWalletsList } from "../../utils/walletsListener";
 
-function WalletsWindow({ expanded, walletsData, setWalletsData }) {
+function WalletsWindow({ expanded, walletsList, setWalletsList }) {
   const [availableWallets, setAvailableWallets] = useState([]);
   useEffect(() => {
-    setAvailableWallets(getWalletsInfo);
+    setAvailableWallets(getWalletsList);
   }, []);
-
-  // Function to connect MetaMask
 
   async function connectToWallet(wallet) {
     console.log(`Connecting to ${wallet.info.name}...`);
@@ -29,17 +25,16 @@ function WalletsWindow({ expanded, walletsData, setWalletsData }) {
     }
   }
   const handleWalletConnect = async (wallet) => {
-    console.log(walletsData);
-    if (Object.keys(walletsData).includes(wallet.info.name)) {
-      let wallets = walletsData;
+    if (Object.keys(walletsList).includes(wallet.info.name)) {
+      let wallets = walletsList;
       delete wallets[wallet.info.name];
-      setWalletsData({ ...wallets });
+      setWalletsList({ ...wallets });
     } else {
       const connectedAccount = await connectToWallet(wallet);
       if (connectedAccount) {
-        let wallets = walletsData;
+        let wallets = walletsList;
         console.log("adding new wallet " + wallet);
-        setWalletsData({ ...wallets, [wallet.info.name]: connectedAccount });
+        setWalletsList({ ...wallets, [wallet.info.name]: connectedAccount });
       }
     }
   };
@@ -73,7 +68,6 @@ function WalletsWindow({ expanded, walletsData, setWalletsData }) {
               className="d-flex flex-row justify-content-center align-items-center"
               style={{ marginTop: 30 }}
             >
-              {console.log(wallet)}
               <div
                 className="d-flex flex-column justify-content-center align-items-center"
                 style={{ width: 82 }}
@@ -90,26 +84,25 @@ function WalletsWindow({ expanded, walletsData, setWalletsData }) {
                 </div>
               </div>
               <div className="d-flex" style={{ width: 30 }}></div>
-              {Object.keys(walletsData).includes(wallet.info.name) ? (
+              {Object.keys(walletsList).includes(wallet.info.name) ? (
                 <div
                   className="buttonLight d-flex justify-content-center align-items-center selectText"
                   onClick={() => handleWalletConnect(wallet)}
                   style={{ width: 120 }}
                 >
                   <div>
-                    {walletsData[wallet.info.name].substring(0, 6) +
+                    {walletsList[wallet.info.name].substring(0, 6) +
                       "..." +
-                      walletsData[wallet.info.name].substring(
-                        walletsData[wallet.info.name].length - 4
+                      walletsList[wallet.info.name].substring(
+                        walletsList[wallet.info.name].length - 4
                       )}
                   </div>
                 </div>
               ) : (
                 <IconButton
-                  tooltipText={`Add ${wallet.info.name}`}
                   name={"Add"}
+                  tooltipText={`Add ${wallet.info.name}`}
                   styleClass={"buttonLight"}
-                  size={32}
                   onClick={() => handleWalletConnect(wallet)}
                 ></IconButton>
               )}

@@ -1,9 +1,9 @@
 import React from "react";
-import Icons from "../ui/Icons";
+import Icons from "../../../components/shared/Icon";
 
 var classnames = require("classnames");
 
-export default function TradeList({ swaps, width }) {
+export default function SwapList({ swaps, width }) {
   return (
     <div
       className="d-flex flex-column justify-content-center align-items-center tradeList customBorder"
@@ -24,7 +24,7 @@ export default function TradeList({ swaps, width }) {
           swaps
         ) : (
           <div className="d-flex flex-column justify-content-center align-items-center tradesPlaceholder">
-            <Icons name={"Error"} size={64}></Icons>
+            <Icons name={"Error"} size={64} />
             <div className="d-flex">No Active Swaps</div>
           </div>
         )}

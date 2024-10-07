@@ -1,23 +1,22 @@
-import IconButton from "../ui/IconButton";
-import InputForm from "../ui/InputForm";
-import Icons from "../ui/Icons";
+import IconButton from "../../../components/shared/IconButton";
+import InputForm from "../../../components/shared/InputForm";
+import Icons from "../../../components/shared/Icon";
 import React from "react";
 import { useState, useEffect } from "react";
-import RateIcon from "../icons/Rate.svg";
-import DynamicText from "../ui/DynamicText";
+import RateIcon from "../../../icons/Rate.svg";
+import DynamicText from "./DynamicText";
 import { v4 as uuidv4 } from "uuid";
 
 var classnames = require("classnames");
 
-export default function CreateTrade({
+export default function CreateSwap({
   token1,
   token2,
   cryptoPrices,
   loadingRef,
   swaps,
   setSwaps,
-  settings,
-  setSettings,
+  setPopUp,
 }) {
   const [formData, setFormData] = useState({
     amount: "",
@@ -109,9 +108,8 @@ export default function CreateTrade({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(token1);
     if (formData.price)
-      setSettings({
+      setPopUp({
         visible: true,
         content: (
           <div className="d-flex flex-column justify-content-center align-items-center">
@@ -201,20 +199,6 @@ export default function CreateTrade({
         <div className="input-image d-flex justify-content-center align-items-center">
           <img
             className={"d-flex"}
-            src={token1.image}
-            alt="Icon"
-            style={{ width: 20 }}
-          />
-        </div>
-        <div className="d-flex swapData justify-content-start align-items-center">
-          <div className="d-flex swapDataText justify-content-start align-items-center">
-            <DynamicText text={formData.amount} style={textStyle} />
-          </div>
-        </div>
-        <Icons name={"Swap"} size={32} />
-        <div className="input-image d-flex justify-content-center align-items-center">
-          <img
-            className={"d-flex"}
             src={token2.image}
             alt="Icon"
             style={{ width: 20 }}
@@ -223,6 +207,20 @@ export default function CreateTrade({
         <div className="d-flex swapData justify-content-start align-items-center">
           <div className="d-flex swapDataText justify-content-start align-items-center">
             <DynamicText text={formData.price} style={textStyle} />
+          </div>
+        </div>
+        <Icons name={"Swap"} size={32} />
+        <div className="input-image d-flex justify-content-center align-items-center">
+          <img
+            className={"d-flex"}
+            src={token1.image}
+            alt="Icon"
+            style={{ width: 20 }}
+          />
+        </div>
+        <div className="d-flex swapData justify-content-start align-items-center">
+          <div className="d-flex swapDataText justify-content-start align-items-center">
+            <DynamicText text={formData.amount} style={textStyle} />
           </div>
         </div>
         <div className="input-image d-flex flex-column justify-content-center align-items-center">
@@ -253,13 +251,11 @@ export default function CreateTrade({
       </div>
     );
     setSwaps([...activeSwaps]);
-    console.log(activeSwaps);
   };
 
   const handleRemove = (price, amount, id) => {
-    console.log(token1);
     if (price)
-      setSettings({
+      setPopUp({
         visible: true,
         content: (
           <div className="d-flex flex-column justify-content-center align-items-center">
@@ -333,8 +329,6 @@ export default function CreateTrade({
   };
 
   const RemoveSwap = (id) => {
-    console.log(id);
-    console.log(swaps);
     setSwaps((prevSwaps) => [
       ...prevSwaps.filter((swap) => swap.props.id !== id),
     ]);
@@ -393,11 +387,8 @@ export default function CreateTrade({
         <IconButton
           type="submit"
           name="Approve"
-          tooltipActive={true}
           tooltipText="Approve Swap"
           styleClass="buttonCreate"
-          activeStyleClass="buttonActive"
-          size={32}
         />
       </form>
     </div>

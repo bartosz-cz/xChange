@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import classnames from "classnames";
-import Icons from "./Icons";
+import Icons from "./Icon";
 import { Overlay } from "react-bootstrap";
 
 function IconButton({

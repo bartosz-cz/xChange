@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import classnames from "classnames";
-import Icons from "../ui/Icons";
-import LineChart from "../ui/lineChart";
-import { useCrypto } from "../../utils/CryptoPrices";
+import Icons from "../../components/shared/Icon";
+import LineChart from "../../components/shared/LineChart";
+import useCrypto from "../../hooks/useCrypto";
 import { Overlay } from "react-bootstrap";
 
 function HeaderPricePanel({
   name,
   onClick,
-  styleClass,
-  size = 32,
+  styleClass = "HeaderPricePanel",
+  size = 48,
   tooltipText = name,
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
