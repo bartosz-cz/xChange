@@ -1,0 +1,16 @@
+:root {
+  --appBColor1: #ffe8ff;
+  --appBColor2: #270e35;
+  --appColor3: #563964;
+  --appColor4: #d5b3e5;
+  --blurColor: #563964cd;
+  --blurColor2: #270e35cd;
+  --blurColor3: #270e35cc;
+  --blurLight: #d5b3e553;
+  --black: #000000b0;
+  --tooltip: #563964;
+  --tooltip2: #d5b3e5;
+  --green: #007e71;
+  --red: #7e0000;
+  --test: #15081d;
+}

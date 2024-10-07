@@ -1,0 +1,40 @@
+/* styles/global.css */
+@import "./variables.css";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root,
+.app {
+  width: 100%;
+  height: 100%;
+  background-color: var(--appBColor1);
+  overflow: hidden;
+}
+
+button,
+input {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.input::placeholder,
+.inputSubmit::placeholder {
+  color: var(--appColor3);
+  opacity: 1;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

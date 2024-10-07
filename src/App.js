@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./styles/variables.css";
+import "./styles/global.css";
+import "./styles/components.css";
+import "./styles/utilities.css";
+import "./styles/media-queries.css";
 import AppHeader from "./layout/header/AppHeader";
 import Content from "./layout/content/Content";
 import TokensInfoProvider from "./components/TokensInfoProvider";
