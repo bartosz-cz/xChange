@@ -7,10 +7,10 @@ function InputForm({
   value,
   onChange,
   symbol,
-  styleclass = "input",
+  borderRadius = "0 16px 16px 0",
   placeholder = "",
   type = "text",
-  validationFunc = (value) => true, // Default validation function
+  validationFunc = (value) => true,
   errorMessage = "Invalid input",
   image,
 }) {
@@ -43,9 +43,9 @@ function InputForm({
   };
 
   return (
-    <div className="custom-input d-flex flex-row">
+    <div className="flexRow">
       {image && (
-        <div className="input-image d-flex justify-content-center align-items-center">
+        <div className="center input-symbol unselectable">
           <img
             className={"d-flex"}
             src={image}
@@ -63,7 +63,8 @@ function InputForm({
         onChange={handleChange}
         onBlur={handleBlur}
         size={value.length || 1}
-        className={classnames(styleclass, error && isTouched ? "error" : "")}
+        className={classnames("textDark", error && isTouched ? "error" : "")}
+        style={{ "--borderRadius": borderRadius, "--fontSize": "18px" }}
       />
       <span
         ref={mirrorSpan}
@@ -77,13 +78,8 @@ function InputForm({
       >
         {value || placeholder}
       </span>
-      {symbol && (
-        <span className="input-symbol d-flex justify-content-center align-items-center">
-          {symbol}
-        </span>
-      )}
+      {symbol && <span className="center input-symbol">{symbol}</span>}
     </div>
   );
 }
-//{error && isTouched && <div className="error-message">{error}</div>}
 export default InputForm;

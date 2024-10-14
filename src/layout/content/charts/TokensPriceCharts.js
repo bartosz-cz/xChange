@@ -7,16 +7,14 @@ export default function TokensPriceCharts({ token1, token2 }) {
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-column",
-        "justify-content-center",
-        "align-items-center",
+        "flexColumn",
+        "center",
         "flex-fill",
-        "tradeTokensCharts"
+        "selectedTokensCharts"
       )}
     >
       <ChartContainer token={token1} />
-      <div style={{ height: 10 }}></div>
+      <div style={{ height: 10 }} />
       <ChartContainer token={token2} />
     </div>
   );

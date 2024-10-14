@@ -3,7 +3,6 @@ import InputForm from "../../../components/shared/InputForm";
 import Icons from "../../../components/shared/Icon";
 import React from "react";
 import { useState, useEffect } from "react";
-import RateIcon from "../../../icons/Rate.svg";
 import DynamicText from "./DynamicText";
 import { v4 as uuidv4 } from "uuid";
 
@@ -112,16 +111,11 @@ export default function CreateSwap({
       setPopUp({
         visible: true,
         content: (
-          <div className="d-flex flex-column justify-content-center align-items-center">
-            <div className="d-flex justify-content-center align-items-center">
-              Are you sure to confirm swap?
-            </div>
+          <div className="flexColumn center">
+            <div className="center">Are you sure to confirm swap?</div>
             <div className="d-flex" style={{ height: 20 }}></div>
-            <div
-              className="d-flex flex-row"
-              style={{ fontSize: 14, fontWeight: 700 }}
-            >
-              <div className="d-flex flex-row justify-content-center align-items-center">
+            <div className="flexRow" style={{ fontSize: 14, fontWeight: 700 }}>
+              <div className="flexRow center">
                 <div className="d-flex">You will pay</div>
                 <div
                   className="d-flex"
@@ -135,7 +129,7 @@ export default function CreateSwap({
                   {formData.amount}
                 </div>
               </div>
-              <div className="d-flex flex-column justify-content-center align-items-center">
+              <div className="flexColumn center">
                 <img
                   className={"d-flex"}
                   src={token1.image}
@@ -144,7 +138,7 @@ export default function CreateSwap({
                 />
                 <div className="d-flex">{token1.symbol.toUpperCase()}</div>
               </div>
-              <div className="d-flex  justify-content-center align-items-center">
+              <div className="center">
                 <div className="d-flex" style={{ marginLeft: 10 }}>
                   for
                 </div>
@@ -160,10 +154,7 @@ export default function CreateSwap({
                   {formData.price}
                 </div>
               </div>
-              <div
-                className="d-flex flex-column  justify-content-center align-items-center"
-                style={{ marginRight: 10 }}
-              >
+              <div className="flexColumn center" style={{ marginRight: 10 }}>
                 <img
                   className={"d-flex"}
                   src={token2.image}
@@ -172,9 +163,7 @@ export default function CreateSwap({
                 />
                 <div className="d-flex">{token2.symbol.toUpperCase()}</div>
               </div>
-              <div className="d-flex justify-content-center align-items-center">
-                minus operational fees*
-              </div>
+              <div className="center">minus operational fees*</div>
             </div>
           </div>
         ),
@@ -183,20 +172,14 @@ export default function CreateSwap({
   };
 
   const handleSwap = () => {
-    const textStyle = {
-      width: "100%", // Assuming parent container controls width
-      fontFamily: "Century Gothic",
-      overflow: "hidden",
-      whiteSpace: "nowrap",
-    };
     let activeSwaps = swaps;
     const uniqueId = uuidv4();
     activeSwaps.push(
-      <div
-        className="d-flex flex-row justify-content-center align-items-center swap"
-        id={uniqueId}
-      >
-        <div className="input-image d-flex justify-content-center align-items-center">
+      <div className="flexRow center swap" id={uniqueId}>
+        <div
+          className="center input-symbol unselectable"
+          style={{ marginLeft: 5 }}
+        >
           <img
             className={"d-flex"}
             src={token2.image}
@@ -204,13 +187,16 @@ export default function CreateSwap({
             style={{ width: 20 }}
           />
         </div>
-        <div className="d-flex swapData justify-content-start align-items-center">
-          <div className="d-flex swapDataText justify-content-start align-items-center">
-            <DynamicText text={formData.price} style={textStyle} />
+        <div className="center swapData">
+          <div className="justify-content-start align-items-center swapText unselectable">
+            <DynamicText text={formData.price} />
           </div>
         </div>
         <Icons name={"Swap"} size={32} />
-        <div className="input-image d-flex justify-content-center align-items-center">
+        <div
+          className="center input-symbol unselectable"
+          style={{ marginLeft: 5 }}
+        >
           <img
             className={"d-flex"}
             src={token1.image}
@@ -219,12 +205,20 @@ export default function CreateSwap({
           />
         </div>
         <div className="d-flex swapData justify-content-start align-items-center">
-          <div className="d-flex swapDataText justify-content-start align-items-center">
-            <DynamicText text={formData.amount} style={textStyle} />
+          <div className="d-flex justify-content-start align-items-center swapText unselectable">
+            <DynamicText text={formData.amount} />
           </div>
         </div>
-        <div className="input-image d-flex flex-column justify-content-center align-items-center">
-          <img src={RateIcon} alt="Icon" style={{ width: 24, marginTop: -5 }} />
+        <div className="flexColumn center input-symbol unselectable">
+          <Icons
+            name={"Rate"}
+            size={24}
+            style={{
+              width: 24,
+              marginTop: -5,
+            }}
+            fill={"#270e35"}
+          />
           <img
             src={token2.image}
             alt="Icon"
@@ -232,22 +226,24 @@ export default function CreateSwap({
           />
         </div>
         <div className="d-flex swapData justify-content-start align-items-center ">
-          <div className="d-flex swapDataText justify-content-start align-items-center">
-            <DynamicText text={formData.rate} style={textStyle} />
+          <div className="d-flex justify-content-start align-items-center swapText unselectable ">
+            <DynamicText text={formData.rate} />
           </div>
         </div>
-        <div className="d-flex flex-fill"></div>
+        <div className="d-flex flex-fill" />
         <IconButton
           name="Approve"
           tooltipActive={true}
           tooltipText="Accept Swap"
-          styleClass="swapConfirm"
+          styleClass="buttonLight"
           activeStyleClass="buttonActive"
+          btnWidth={50}
           onClick={() =>
             handleRemove(formData.amount, formData.price, uniqueId)
           }
           size={32}
         />
+        <div style={{ width: 5 }} />
       </div>
     );
     setSwaps([...activeSwaps]);
@@ -258,17 +254,14 @@ export default function CreateSwap({
       setPopUp({
         visible: true,
         content: (
-          <div className="d-flex flex-column justify-content-center align-items-center">
-            <div className="d-flex justify-content-center align-items-center">
+          <div className="flexColumn center unselectable ">
+            <div className="center unselectable">
               Are you sure to confirm swap?
             </div>
-            <div className="d-flex" style={{ height: 20 }}></div>
-            <div
-              className="d-flex flex-row"
-              style={{ fontSize: 14, fontWeight: 700 }}
-            >
-              <div className="d-flex flex-row justify-content-center align-items-center">
-                <div className="d-flex">You will pay</div>
+            <div className="d-flex" style={{ height: 20 }} />
+            <div className="flexRow" style={{ fontSize: 14, fontWeight: 700 }}>
+              <div className="flexRow center">
+                <div className="d-flex unselectable">You will pay</div>
                 <div
                   className="d-flex"
                   style={{
@@ -281,21 +274,23 @@ export default function CreateSwap({
                   {price}
                 </div>
               </div>
-              <div className="d-flex flex-column justify-content-center align-items-center">
+              <div className="flexColumn center unselectable">
                 <img
                   className={"d-flex"}
                   src={token1.image}
                   alt="Icon"
                   style={{ width: 24 }}
                 />
-                <div className="d-flex">{token1.symbol.toUpperCase()}</div>
+                <div className="d-flex unselectable">
+                  {token1.symbol.toUpperCase()}
+                </div>
               </div>
-              <div className="d-flex  justify-content-center align-items-center">
-                <div className="d-flex" style={{ marginLeft: 10 }}>
+              <div className="center">
+                <div className="d-flex unselectable" style={{ marginLeft: 10 }}>
                   for
                 </div>
                 <div
-                  className="d-flex"
+                  className="d-flex unselectable"
                   style={{
                     fontSize: 18,
                     fontWeight: 900,
@@ -307,7 +302,7 @@ export default function CreateSwap({
                 </div>
               </div>
               <div
-                className="d-flex flex-column  justify-content-center align-items-center"
+                className="flexColumn center unselectable"
                 style={{ marginRight: 10 }}
               >
                 <img
@@ -316,9 +311,11 @@ export default function CreateSwap({
                   alt="Icon"
                   style={{ width: 24 }}
                 />
-                <div className="d-flex">{token2.symbol.toUpperCase()}</div>
+                <div className="d-flex unselectable ">
+                  {token2.symbol.toUpperCase()}
+                </div>
               </div>
-              <div className="d-flex justify-content-center align-items-center">
+              <div className="center unselectable ">
                 minus operational fees*
               </div>
             </div>
@@ -335,19 +332,15 @@ export default function CreateSwap({
   };
 
   return (
-    <div className="d-flex flex-column tradeCreate customBorder">
-      <div className="d-flex justify-content-center align-items-center tradeCreateHeader">
+    <div className="flexColumn swapCreate">
+      <div
+        className="center textLight unselectable "
+        style={{ "--fontSize": 20 + "px" }}
+      >
         Swap
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className={classnames(
-          "d-flex",
-          "flex-row",
-          "justify-content-center",
-          "align-items-center"
-        )}
-      >
+      <div style={{ height: 15 }} />
+      <form onSubmit={handleSubmit} className={classnames("flexRow", "center")}>
         <InputForm
           name="amount"
           placeholder="0.00"
@@ -357,7 +350,9 @@ export default function CreateSwap({
           errorMessage="Amount is required"
           image={token1.image}
         />
+        <div className="d-flex" style={{ width: 5 }} />
         <Icons name={"Swap"} size={32} />
+        <div className="d-flex" style={{ width: 5 }} />
         <InputForm
           name="price"
           placeholder="0.00"
@@ -367,8 +362,19 @@ export default function CreateSwap({
           errorMessage="Price is required"
           image={token2.image}
         />
-        <div className="input-image d-flex flex-column justify-content-center align-items-center">
-          <img src={RateIcon} alt="Icon" style={{ width: 24, marginTop: -5 }} />
+        <div
+          className="flexColumn center input-symbol unselectable"
+          style={{ marginLeft: 10 }}
+        >
+          <Icons
+            name={"Rate"}
+            size={24}
+            style={{
+              width: 24,
+              marginTop: -5,
+            }}
+            fill={"#270e35"}
+          />
           <img
             src={token2.image}
             alt="Icon"
@@ -376,19 +382,20 @@ export default function CreateSwap({
           />
         </div>
         <InputForm
-          styleclass="inputSubmit"
           name="rate"
           placeholder={0.0}
           value={formData.rate}
           onChange={handleInputChange}
           validationFunc={(value) => !!value.trim()}
           errorMessage="Rate is required"
+          borderRadius={"0px"}
         />
         <IconButton
           type="submit"
           name="Approve"
           tooltipText="Approve Swap"
-          styleClass="buttonCreate"
+          styleClass="buttonLight"
+          borderRadius="0 16px 16px 0"
         />
       </form>
     </div>

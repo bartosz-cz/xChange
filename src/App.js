@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import "./styles/variables.css";
-import "./styles/global.css";
-import "./styles/components.css";
-import "./styles/utilities.css";
+
+import "./styles/components.scss";
+import "./styles/layout.scss";
+import "./styles/utilities.scss";
 import "./styles/media-queries.css";
+import "./styles/variables.scss";
+
 import AppHeader from "./layout/header/AppHeader";
 import Content from "./layout/content/Content";
 import TokensInfoProvider from "./components/TokensInfoProvider";
@@ -26,7 +28,7 @@ function App() {
       setSelectedToken2={setSelectedToken2}
     >
       <PopUp popUp={popUp} setPopUp={setPopUp} />
-      <div className="d-flex flex-column app">
+      <div className="flexColumn app">
         <AppHeader walletsList={walletsList} setWalletsList={setWalletsList} />
         <TokensSelect
           selectedToken1={selectedToken1}

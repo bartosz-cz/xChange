@@ -30,11 +30,10 @@ function SwapsManagement({ token1, token2, setPopUp }) {
     <div
       ref={parentRef}
       className={classnames(
-        "d-flex",
-        "flex-column",
+        "flexColumn",
         "justify-content-start",
         "align-items-center",
-        "trades"
+        "swapsManagement"
       )}
     >
       <CreateSwap

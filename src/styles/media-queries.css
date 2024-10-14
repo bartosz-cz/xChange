@@ -1,39 +1,39 @@
 /* styles/media-queries.css */
-@import "./variables.css";
+@import "./variables.scss";
 
 /* Responsive Design */
 @media only screen and (max-width: 1475px) {
-  #WBTC.d-flex {
+  #WBTC {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 1275px) {
-  #DAI.d-flex {
+  #DAI {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 1075px) {
-  #LINK.d-flex {
+  #LINK {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 875px) {
-  #BNB.d-flex {
+  #BNB {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 675px) {
-  #USDT.d-flex {
+  #USDT {
     display: none !important;
   }
 }
 
 @media only screen and (max-width: 475px) {
-  #ETH.d-flex {
+  #ETH {
     display: none !important;
   }
 }

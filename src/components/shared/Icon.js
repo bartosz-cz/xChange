@@ -22,7 +22,7 @@ import { ReactComponent as ArrowUp } from "../../icons/ArrowUp.svg";
 import { ReactComponent as ArrowDown } from "../../icons/ArrowDown.svg";
 import { ReactComponent as Cancel } from "../../icons/Cancel.svg";
 
-const Icons = ({ name, size = 32 }) => {
+const Icons = ({ name, size = 32, fill = "#ffe8f" }) => {
   const IconComponent = {
     MetamaskIcon: MetamaskIcon,
     TrustIcon: TrustIcon,
@@ -56,6 +56,7 @@ const Icons = ({ name, size = 32 }) => {
       width={size}
       height={size}
       aria-labelledby={name}
+      style={{ fill: fill }}
       role="img"
     />
   );

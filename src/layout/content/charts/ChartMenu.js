@@ -20,14 +20,16 @@ export default function ChartMenu({
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-column",
+        "flexColumn",
         "justify-content-start",
         "align-items-center",
         "chartMenu"
       )}
     >
-      <div className="d-flex flex-row justify-content-center align-items-center chartMenuTitle">
+      <div
+        className="flexRow center textLight unselectable "
+        style={{ "--fontSize": 18 + `px`, marginTop: 10 }}
+      >
         <img
           className={"d-flex"}
           src={token.image}
@@ -37,83 +39,96 @@ export default function ChartMenu({
         <div style={{ width: 10 }}></div>
         {token.symbol.toUpperCase()}
       </div>
-      <div className="d-flex flex-column">
-        <div className="d-flex flex-row justify-content-start align-items-center MenuText">
-          <Icons name={"ArrowUp"} size={24}></Icons>
+      <div className="column">
+        <div
+          className="flexRow justify-content-start align-items-center textLight unselectable "
+          style={{ "--fontSize": 18 + `px`, marginTop: 10 }}
+        >
+          <Icons name={"ArrowUp"} size={24} fill={"#007e71"} />
           <div style={{ width: 10 }}></div>
           {"$" + Math.max(...data)}
         </div>
-        <div className="d-flex flex-row justify-content-start align-items-center MenuText">
-          <Icons name={"ArrowDown"} size={24}></Icons>
-          <div style={{ width: 10 }}></div>
+        <div
+          className="flexRow justify-content-start align-items-center textLight unselectable "
+          style={{ "--fontSize": 18 + `px`, marginTop: 10, marginBottom: 10 }}
+        >
+          <Icons name={"ArrowDown"} size={24} fill={"#7e0000"} />
+          <div style={{ width: 10 }} />
           {"$" + Math.min(...data)}
         </div>
       </div>
 
       <div
-        className="d-flex flex-column justify-content-start align-items-center MenuText"
-        style={{ fontSize: 13 }}
+        className="flexColumn justify-content-start align-items-center textLight"
+        style={{ "--fontSize": 15 + `px`, marginTop: 10 }}
       >
-        <div className="d-flex">Market Cap</div>
-        <div className="d-flex">{marketCap}</div>
+        <div className="d-flex unselectable">Market Cap</div>
+        <div style={{ height: 5 }} />
+        <div className="d-flex unselectable">{marketCap}</div>
       </div>
       <div
-        className="d-flex flex-column justify-content-start align-items-center MenuText"
-        style={{ fontSize: 13 }}
+        className="flexColumn justify-content-start align-items-center textLight"
+        style={{ "--fontSize": 15 + `px`, marginTop: 15 }}
       >
-        <div className="d-flex">Total Supply</div>
-        <div className="d-flex">
+        <div className="d-flex unselectable">Total Supply</div>
+        <div style={{ height: 5 }} />
+        <div className="d-flex unselectable">
           {(token.total_supply.toFixed(0) * 1).toLocaleString()}
         </div>
       </div>
-      <div className="d-flex flex-fill flex-row justify-content-center align-items-end chartButtons">
+      <div
+        className="flexRow flex-fill justify-content-center align-items-end"
+        style={{ marginBottom: 5 }}
+      >
         <div
-          className={classnames(
-            "d-flex",
-            "justify-content-center",
-            "align-items-center",
-            "chartButton",
-            { button_active: rangeSelected[0] === 1 }
-          )}
-          style={{ borderTopLeftRadius: 8, borderEndStartRadius: 8 }}
+          className={classnames("center", "unselectable", "buttonLight", {
+            buttonActive: rangeSelected[0] === 1,
+          })}
+          style={{
+            "--btnWidth": 30 + `px`,
+            "--btnHeight": 30 + `px`,
+            "--borderRadius": "8px 0 0 8px",
+          }}
           onClick={() => Handler([1, 144, "histominute", 10])}
         >
           1D
         </div>
         <div
-          className={classnames(
-            "d-flex",
-            "justify-content-center",
-            "align-items-center",
-            "chartButton",
-            { button_active: rangeSelected[0] === 2 }
-          )}
+          className={classnames("center", "unselectable", "buttonLight", {
+            buttonActive: rangeSelected[0] === 2,
+          })}
           onClick={() => Handler([2, 168, "histohour"])}
+          style={{
+            "--btnWidth": 30 + `px`,
+            "--btnHeight": 30 + `px`,
+            "--borderRadius": "0px",
+          }}
         >
           7D
         </div>
         <div
-          className={classnames(
-            "d-flex",
-            "justify-content-center",
-            "align-items-center",
-            "chartButton",
-            { button_active: rangeSelected[0] === 3 }
-          )}
+          className={classnames("center", "unselectable", "buttonLight", {
+            buttonActive: rangeSelected[0] === 3,
+          })}
           onClick={() => Handler([3, 144, "histohour", 5])}
+          style={{
+            "--btnWidth": 30 + `px`,
+            "--btnHeight": 30 + `px`,
+            "--borderRadius": "0px",
+          }}
         >
           1M
         </div>
         <div
-          className={classnames(
-            "d-flex",
-            "justify-content-center",
-            "align-items-center",
-            "chartButton",
-            { button_active: rangeSelected[0] === 4 }
-          )}
-          style={{ borderEndEndRadius: 8, borderTopRightRadius: 8 }}
+          className={classnames("center", "unselectable", "buttonLight", {
+            buttonActive: rangeSelected[0] === 4,
+          })}
           onClick={() => Handler([4, 182, "histoday", 2])}
+          style={{
+            "--btnWidth": 30 + `px`,
+            "--btnHeight": 30 + `px`,
+            "--borderRadius": "0 8px 8px 0",
+          }}
         >
           1Y
         </div>
