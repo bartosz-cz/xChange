@@ -31,8 +31,6 @@ export default function ChartContainer({ token }) {
         rangeSelected[2],
         rangeSelected[3]
       );
-      //console.log("chart DaTA");
-      //console.log(newData);
       if (newData) {
         timestamps = newData.map((item) => item[0]);
         if (rangeSelected[2] === "histominute") {
@@ -79,18 +77,10 @@ export default function ChartContainer({ token }) {
   ]);
   return (
     <div
-      className={classnames(
-        "d-flex",
-        "flex-row",
-        "justify-content-center",
-        "align-items-center",
-        "chartContainer",
-        "flex-fill",
-        "customBorder"
-      )}
+      className={classnames("flexRow", "center", "chartContainer", "flex-fill")}
     >
       <LineChart
-        styleClass={"MainChart"}
+        styleClass={"mainChart"}
         isReady={isReady}
         data={data.values}
         labels={data.timestamps}

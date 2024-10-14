@@ -2,7 +2,7 @@ import IconButton from "../../components/shared/IconButton";
 import React from "react";
 import { useState } from "react";
 import Icons from "../../components/shared/Icon";
-import WalletsWindow from "./WalletsWindow";
+import WalletsSelect from "./WalletsSelect";
 import HeaderPricePanel from "./HeaderPricePanel";
 var classnames = require("classnames");
 
@@ -15,14 +15,13 @@ export default function AppHeader({ walletsList, setWalletsList }) {
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-row",
+        "flexRow",
         "justify-content-end",
         "appHeader",
         "inner-shadow"
       )}
     >
-      <div className="appHeaderPart1 d-flex flex-row align-items-center">
+      <div className="flexRow align-items-center appHeaderLeft">
         <Icons name={"AppLogo"} size={90}></Icons>
         <HeaderPricePanel name={"ETH"} />
         <HeaderPricePanel name={"USDT"} />
@@ -32,22 +31,26 @@ export default function AppHeader({ walletsList, setWalletsList }) {
         <HeaderPricePanel name={"WBTC"} />
       </div>
       <div
-        className="appHeaderPart2 d-flex
-        flex-row"
+        className="flexRow appHeaderRight center"
+        style={{ paddingRight: 35 }}
       >
         <IconButton
           name={"Wallet"}
           tooltipText={"Add Wallets"}
-          styleClass={"buttonDark buttonWallet"}
-          activeStyleClass={"buttonActive buttonWallet"}
+          styleClass={"buttonDark"}
+          activeStyleClass={"buttonActive"}
           onClick={handleWalletClick}
-          expanded={expanded}
-        ></IconButton>
-        <WalletsWindow
+          active={expanded}
+          btnWidth={60}
+          btnHeight={50}
+          borderRadius="45px"
+          zIndex={10}
+        />
+        <WalletsSelect
           expanded={expanded}
           walletsList={walletsList}
           setWalletsList={setWalletsList}
-        ></WalletsWindow>
+        ></WalletsSelect>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Icons from "../../components/shared/Icon";
 import classnames from "classnames";
 import { getWalletsList } from "../../utils/walletsListener";
 
-function WalletsWindow({ expanded, walletsList, setWalletsList }) {
+function WalletsSelect({ expanded, walletsList, setWalletsList }) {
   const [availableWallets, setAvailableWallets] = useState([]);
   useEffect(() => {
     setAvailableWallets(getWalletsList);
@@ -42,12 +42,10 @@ function WalletsWindow({ expanded, walletsList, setWalletsList }) {
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-column",
-        { walletsWindowExpanded: expanded },
-        "walletsWindow",
-        "justify-content-center",
-        "align-items-center",
+        "flexColumn",
+        { walletsSelectExpanded: expanded },
+        "walletsSelect",
+        "center",
         "unselectable"
       )}
       style={{
@@ -55,23 +53,17 @@ function WalletsWindow({ expanded, walletsList, setWalletsList }) {
       }}
     >
       {availableWallets.length !== 0 ? (
-        <div className="d-flex flex-column justify-content-center align-items-center">
-          <div
-            className="d-flex flex-row textS1Light"
-            style={{ marginTop: 10 }}
-          >
+        <div className="flexColumn center">
+          <div className="flexRow textLight" style={{ marginTop: 10 }}>
             Add Wallets
           </div>
           {availableWallets.map((wallet, index) => (
             <div
               key={index}
-              className="d-flex flex-row justify-content-center align-items-center"
+              className="flexRow center"
               style={{ marginTop: 30 }}
             >
-              <div
-                className="d-flex flex-column justify-content-center align-items-center"
-                style={{ width: 82 }}
-              >
+              <div className="flexColumn center" style={{ width: 82 }}>
                 <img
                   alt={"icon"}
                   src={wallet.info.icon}
@@ -79,14 +71,21 @@ function WalletsWindow({ expanded, walletsList, setWalletsList }) {
                   width="50"
                   height="50"
                 ></img>
-                <div className="d-flex textS2Light justify-content-center align-items-center unselectable">
+                <div
+                  className="center textLight unselectable"
+                  style={{
+                    "--fontSize": "15px",
+                    marginBottom: 10,
+                    marginTop: 10,
+                  }}
+                >
                   {wallet.info.name}
                 </div>
               </div>
               <div className="d-flex" style={{ width: 30 }}></div>
               {Object.keys(walletsList).includes(wallet.info.name) ? (
                 <div
-                  className="buttonLight d-flex justify-content-center align-items-center selectText"
+                  className="center buttonLight selectText"
                   onClick={() => handleWalletConnect(wallet)}
                   style={{ width: 120 }}
                 >
@@ -104,24 +103,18 @@ function WalletsWindow({ expanded, walletsList, setWalletsList }) {
                   tooltipText={`Add ${wallet.info.name}`}
                   styleClass={"buttonLight"}
                   onClick={() => handleWalletConnect(wallet)}
-                ></IconButton>
+                  btnWidth={60}
+                  btnHeight={50}
+                  borderRadius="45px"
+                />
               )}
             </div>
           ))}
         </div>
       ) : (
-        <div
-          className="d-flex flex-column justify-content-center align-items-center"
-          style={{
-            paddingLeft: 10,
-            paddingTop: 20,
-            paddingBottom: 10,
-            paddingRight: 10,
-          }}
-        >
-          {" "}
-          <Icons name={"Error"} size={64}></Icons>
-          <div className="d-flex textS1Light">
+        <div className="flexColumn center" style={{ color: "#ffe8ff" }}>
+          <Icons name={"Error"} size={64} />
+          <div className="d-flex unselectable">
             No wallets detected in your browser
           </div>
         </div>
@@ -130,4 +123,4 @@ function WalletsWindow({ expanded, walletsList, setWalletsList }) {
   );
 }
 
-export default WalletsWindow;
+export default WalletsSelect;

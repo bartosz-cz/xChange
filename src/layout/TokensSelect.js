@@ -49,28 +49,30 @@ export default function TokensSelect({
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-row",
+        "flexRow",
         "justify-content-start",
         "align-items-center",
-        "search",
-        { searchExpanded: expanded },
-        { customBorder: expanded }
+        "tokensSelect",
+        { tokensSelectExpanded: expanded }
       )}
     >
       <IconButton
         name={"RightArrow"}
         onClick={() => mouseHandler(true)}
         tooltipActive={false}
-        styleClass={"searchButton"}
+        styleClass={"buttonDark"}
         visible={!expanded}
+        borderRadius="0 16px 16px 0"
+        btnHeight={45}
       />
       <IconButton
         name={"BackArrow"}
         onClick={() => mouseHandler(false)}
         tooltipActive={false}
-        styleClass={"BackButton"}
+        styleClass={"buttonDark"}
         visible={expanded}
+        borderRadius="16px 0 0 16px"
+        btnHeight={45}
       />
       <div style={{ width: 30 }}></div>
       <FormSelect

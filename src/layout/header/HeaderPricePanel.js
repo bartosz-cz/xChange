@@ -8,7 +8,7 @@ import { Overlay } from "react-bootstrap";
 function HeaderPricePanel({
   name,
   onClick,
-  styleClass = "HeaderPricePanel",
+  styleClass = "headerPricePanel",
   size = 48,
   tooltipText = name,
 }) {
@@ -109,48 +109,45 @@ function HeaderPricePanel({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      className={classnames(
-        styleClass,
-        "d-flex",
-        "flex-row",
-        "justify-content-center",
-        "align-items-center",
-        { "d-none": data.values.length === 0 }
-      )}
+      className={classnames(styleClass, "flexRow", "center", {
+        "d-none": data.values.length === 0,
+      })}
       id={name}
       type="button"
       role="button"
       aria-label={`Option for ${name}`}
     >
       <Icons className={"d-flex"} name={name} size={size} />
-      <div className="d-flex flex-column">
+      <div className="flexColumn">
         <LineChart
-          styleClass={"HeaderChart"}
+          styleClass={"headerChart"}
           isReady={isReady}
           data={data.values}
           labels={data.timestamps}
           color={color}
         ></LineChart>
         <div
-          style={{ height: 15, color: color }}
-          className="d-flex HeaderText justify-content-center unselectable"
+          style={{ height: 15, color: color, fontSize: 12 }}
+          className="center unselectable"
         >
           {(data.values[data.values.length - 1] + "").slice(0, 8) + "$"}
         </div>
       </div>
-      <div
-        style={{ width: 30, paddingLeft: 3 }}
-        className="d-flex flex-column justify-content-center align-items-center"
-      >
+      <div style={{ width: 30, paddingLeft: 3 }} className="flexColumn center">
         <div
-          style={{ height: 10 }}
-          className="d-flex HeaderText2 justify-content-center align-items-center unselectable"
+          style={{ height: 10, "--fontSize": 13 + `px` }}
+          className="center textDark unselectable"
         >
           24h
         </div>
         <div
-          style={{ height: 10, marginTop: 5, color: color }}
-          className="d-flex HeaderText justify-content-center align-items-center unselectable"
+          className="center unselectable"
+          style={{
+            height: 10,
+            marginTop: 5,
+            color: color,
+            fontSize: 12,
+          }}
         >
           {data.change}
         </div>

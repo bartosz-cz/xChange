@@ -9,11 +9,15 @@ function IconButton({
   tooltipText = name,
   tooltipActive = true,
   onClick,
-  styleClass,
+  styleClass = "buttonLight",
   activeStyleClass = "buttonActive",
   size = 32,
   visible = true,
   active = false,
+  btnWidth = 40,
+  btnHeight = 40,
+  zIndex = 3,
+  borderRadius = "16px",
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const [hoverTimer, setHoverTimer] = useState(null);
@@ -80,16 +84,18 @@ function IconButton({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      className={classnames(
-        active ? activeStyleClass : styleClass,
-        "d-flex",
-        "justify-content-center",
-        "align-items-center",
-        { "d-none": !visible }
-      )}
+      className={classnames("center", active ? activeStyleClass : styleClass, {
+        "d-none": !visible,
+      })}
       id={name}
       type={type}
       aria-label={`Option for ${name}`}
+      style={{
+        "--borderRadius": borderRadius,
+        "--btnWidth": `${btnWidth}px`,
+        "--btnHeight": `${btnHeight}px`,
+        "--zIndex": `${zIndex}`,
+      }}
     >
       <Icons name={name} size={size} />
       <Overlay target={target.current} show={showTooltip} placement="bottom">

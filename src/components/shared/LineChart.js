@@ -238,7 +238,7 @@ const LineChart = ({ data, labels, title, styleClass, color, isReady }) => {
   };
 
   const allData =
-    styleClass !== "MainChart"
+    styleClass !== "mainChart"
       ? {
           labels,
           datasets: [
@@ -271,7 +271,7 @@ const LineChart = ({ data, labels, title, styleClass, color, isReady }) => {
         };
 
   const options =
-    styleClass !== "MainChart"
+    styleClass !== "mainChart"
       ? {
           scales: {
             x: { display: false },
@@ -353,7 +353,7 @@ const LineChart = ({ data, labels, title, styleClass, color, isReady }) => {
         };
 
   const plugins =
-    styleClass !== "MainChart"
+    styleClass !== "mainChart"
       ? [GradientPlugin]
       : [GradientPlugin, chartArea, yScalePlugin, verticalLine];
 

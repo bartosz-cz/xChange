@@ -8,8 +8,7 @@ export default function Content({ token1, token2, setPopUp }) {
   return (
     <div
       className={classnames(
-        "d-flex",
-        "flex-row",
+        "flexRow",
         "justify-content-between",
         "align-items-start",
         "content",

@@ -17,30 +17,30 @@ export default function PopUp({ popUp, setPopUp }) {
 
   return (
     <div
-      className={classnames(
-        "d-flex",
-        "justify-content-center",
-        "align-items-center",
-        "ApproveBackground",
-        { "d-none": !popUp.visible }
-      )}
+      className={classnames("center", "popUpBlur", {
+        "d-none": !popUp.visible,
+      })}
     >
-      <div className="d-flex flex-column innerWindow justify-content-start align-items-center">
-        <div className="d-flex textS1Dark justify-content-center align-items-center">
-          {popUp.content}
-        </div>
+      <div className="popUpContainer">
+        <div className="center textDark">{popUp.content}</div>
         <div className="d-flex" style={{ height: 20 }}></div>
-        <div className="d-flex flex-row">
+        <div className="flexRow">
           <IconButton
             name={"Cancel"}
             styleClass={"buttonDark"}
             onClick={handleCancel}
+            btnWidth={60}
+            btnHeight={50}
+            borderRadius="45px"
           ></IconButton>
           <div className="d-flex" style={{ width: 20 }}></div>
           <IconButton
             name={"Approve"}
             styleClass={"buttonDark"}
             onClick={handleApprove}
+            btnWidth={60}
+            btnHeight={50}
+            borderRadius="45px"
           ></IconButton>
         </div>
       </div>

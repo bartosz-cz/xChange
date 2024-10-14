@@ -50,8 +50,13 @@ export default function FormSelect({
             type="button"
             onClick={() => handleSelectionChange(token)}
           >
-            <img alt={"icon"} src={token.image} className="d-flex"></img>
-            <div className="d-flex selectText justify-content-center align-items-center">
+            <img
+              alt={"icon"}
+              src={token.image}
+              className="d-flex"
+              style={{ marginRight: 5 }}
+            />
+            <div className="d-flex justify-content-center align-items-center">
               {token.symbol.toUpperCase()}
             </div>
           </div>
@@ -77,13 +82,14 @@ export default function FormSelect({
       role="button"
       ref={target}
     >
-      <div className="d-flex flex-row selectedOption justify-content-center unselectable">
+      <div className="flexRow selectedOption justify-content-center unselectable">
         <img
           alt={"icon"}
           src={selectedToken.image}
           className="d-flex unselectable"
-        ></img>
-        <div className="d-flex selectText justify-content-center align-items-center unselectable">
+          style={{ marginRight: 5 }}
+        />
+        <div className="center unselectable">
           {selectedToken.symbol.toUpperCase()}
         </div>
       </div>

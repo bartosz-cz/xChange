@@ -5,27 +5,23 @@ var classnames = require("classnames");
 
 export default function SwapList({ swaps, width }) {
   return (
-    <div
-      className="d-flex flex-column justify-content-center align-items-center tradeList customBorder"
-      style={{ width: `${width}px` }}
-    >
+    <div className="flexColumn center swapList" style={{ width: `${width}px` }}>
       <div
         className={classnames(
-          "d-flex",
-          "flex-column",
+          "flexColumn",
           { "justify-content-start": swaps.length !== 0 },
           { "justify-content-center": swaps.length === 0 },
           "align-items-center",
-          "tradeContainer",
+          "swapContainer",
           "custom-scrollbar"
         )}
       >
         {swaps.length !== 0 ? (
           swaps
         ) : (
-          <div className="d-flex flex-column justify-content-center align-items-center tradesPlaceholder">
+          <div className="flexColumn center">
             <Icons name={"Error"} size={64} />
-            <div className="d-flex">No Active Swaps</div>
+            <div className="d-flex unselectable">No Active Swaps</div>
           </div>
         )}
       </div>
