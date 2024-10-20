@@ -20,7 +20,7 @@ The dashboard provides a comprehensive view of the crypto market, displaying liv
 
 ### Token Selection
 Select ERC20 tokens to trade. 
-![Token Selection](./screenshots/tokensSelect.png) 
+![Token Selection](./screenshots/tokenSelect.png) 
 
 ### Swap List
 Check the list of available swaps.
