@@ -24,7 +24,6 @@ Select ERC20 tokens to trade.
 
 ### Swap List
 Check the list of available swaps.
-![Swap List](./screenshots/swapList.png) 
 ![Swap List](./screenshots/swapList2.png) 
 
 ### Wallet Integration
