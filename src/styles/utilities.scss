@@ -38,6 +38,7 @@
 
 .textLight {
   @extend .text;
+  white-space: nowrap;
   color: var(--appBColor1);
 }
 

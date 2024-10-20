@@ -149,8 +149,8 @@ input {
 
 .swapList {
   @extend .lightBorder;
-  flex-grow: 1;
-  max-height: calc(100% - 18px);
+  height: 100%;
+  max-height: calc(100% - 108px);
   color: var(--appBColor1);
   background-color: var(--appBColor2);
   border-radius: 16px;
@@ -160,8 +160,10 @@ input {
 }
 
 .swapContainer {
-  flex-grow: 1;
+  box-sizing: border-box;
+  height: 100%;
   width: 100%;
+  max-height: 100%;
   margin: 20px 0;
   background-color: var(--appColor3);
   border-radius: 16px;
