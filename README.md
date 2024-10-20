@@ -16,31 +16,30 @@ Welcome to the frontend preview of xChange, a React-based cryptocurrency exchang
 
 ### Whole App View
 The dashboard provides a comprehensive view of the crypto market, displaying live charts and active swap opportunities.
-![Whole App View](path/to/dashboard_screenshot.png)  <!-- Replace path/to/dashboard_screenshot.png with the actual file path -->
-
-### Swap Creation
-Create your swap with a custom token price.
-![Swap Creation](path/to/swap_confirmation_screenshot.png) 
+![Whole App View](./screenshots/fullView.png)
 
 ### Token Selection
 Select ERC20 tokens to trade. 
-![Token Selection](path/to/swap_confirmation_screenshot.png) 
+![Token Selection](./screenshots/tokensSelect.png) 
 
 ### Swap List
 Check the list of available swaps.
-![Swap List](path/to/swap_confirmation_screenshot.png) 
+![Swap List](./screenshots/swapList.png) 
+![Swap List](./screenshots/swapList2.png) 
 
 ### Wallet Integration
 Add and switch between different crypto wallets with just a few clicks, directly from the app interface.
-![Wallet Integration](path/to/wallet_integration_screenshot.png)
+![Wallet Integration](./screenshots/walletSelect.png)
+![Wallet Integration](./screenshots/walletSelect2.png)
+![Wallet Integration](./screenshots/walletSelect3.png)
 
 ### Trading Charts
 Track the prices of tokens you trade.
-![Trading Charts](path/to/trading_interface_screenshot.png) 
+![Trading Charts](./screenshots/charts.png) 
 
 ### Swap Confirmation
 Confirm your crypto swaps with detailed insights, ensuring safety in every transaction.
-![Swap Confirmation](path/to/swap_confirmation_screenshot.png) 
+![Swap Confirmation](./screenshot/swapConfirm.png) 
 ## Try It Out
 
 ### Installation
