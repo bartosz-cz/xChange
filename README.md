@@ -47,7 +47,7 @@ Confirm your crypto swaps with detailed insights, ensuring safety in every trans
 
 ## Live Demo
 
-Experience app in action through our live demo available at:
+Experience app in action through live demo available at:
 [Live Demo](https://bartosz-cz.github.io/xChange)
 
 ## Try It Out
