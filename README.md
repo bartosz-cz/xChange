@@ -44,6 +44,12 @@ Track the prices of tokens you trade.
 Confirm your crypto swaps with detailed insights, ensuring safety in every transaction.
 
 ![Swap Confirmation](./screenshots/swapConfirm.png) 
+
+## Live Demo
+
+Experience app in action through our live demo available at:
+[Live Demo](https://bartosz-cz.github.io/xChange)
+
 ## Try It Out
 
 ### Installation
