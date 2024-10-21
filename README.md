@@ -34,11 +34,11 @@ Add and switch between different crypto wallets with just a few clicks, directly
 
 ### Trading Charts
 Track the prices of tokens you trade.
-![Trading Charts](./screenshots/charts.png) 
+![Trading Charts](./screenshots/Charts.png) 
 
 ### Swap Confirmation
 Confirm your crypto swaps with detailed insights, ensuring safety in every transaction.
-![Swap Confirmation](./screenshot/swapConfirm.png) 
+![Swap Confirmation](./screenshots/swapConfirm.png) 
 ## Try It Out
 
 ### Installation
