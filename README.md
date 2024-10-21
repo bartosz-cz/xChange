@@ -16,27 +16,33 @@ Welcome to the frontend preview of xChange, a React-based cryptocurrency exchang
 
 ### Whole App View
 The dashboard provides a comprehensive view of the crypto market, displaying live charts and active swap opportunities.
+
 ![Whole App View](./screenshots/fullView.png)
 
 ### Token Selection
 Select ERC20 tokens to trade. 
+
 ![Token Selection](./screenshots/tokenSelect.png) 
 
 ### Swap List
 Check the list of available swaps.
+
 ![Swap List](./screenshots/swapList2.png) 
 
 ### Wallet Integration
 Add and switch between different crypto wallets with just a few clicks, directly from the app interface.
+
 ![Wallet Integration](./screenshots/walletSeleect2.png)
 ![Wallet Integration](./screenshots/walletSelect3.png)
 
 ### Trading Charts
 Track the prices of tokens you trade.
+
 ![Trading Charts](./screenshots/Charts.png) 
 
 ### Swap Confirmation
 Confirm your crypto swaps with detailed insights, ensuring safety in every transaction.
+
 ![Swap Confirmation](./screenshots/swapConfirm.png) 
 ## Try It Out
 
