@@ -29,7 +29,7 @@ Check the list of available swaps.
 ### Wallet Integration
 Add and switch between different crypto wallets with just a few clicks, directly from the app interface.
 ![Wallet Integration](./screenshots/walletSelect.png)
-![Wallet Integration](./screenshots/walletSeelect2.png)
+![Wallet Integration](./screenshots/walletSeleect2.png)
 ![Wallet Integration](./screenshots/walletSelect3.png)
 
 ### Trading Charts
