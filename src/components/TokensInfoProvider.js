@@ -1,4 +1,3 @@
-// components/TokensInfoProvider.js
 import React, { useState, useEffect, useRef } from "react";
 import CryptoContext from "../contexts/CryptoContext";
 import {
@@ -6,7 +5,8 @@ import {
   fetchLatestPrices,
   fetchErc20Tokens,
 } from "../api/cryptoInfoApi";
-import { download, save } from "../utils/manageStorage"; // Adjust the path as needed
+import { download, save } from "../utils/manageStorage";
+import LoadingScreen from "../layout/LoadingScreen";
 
 const TokensInfoProvider = ({
   children,
@@ -20,6 +20,8 @@ const TokensInfoProvider = ({
   });
   const [erc20Tokens, setErc20Tokens] = useState([]);
   const [isReady, setIsReady] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [progressText, setProgressText] = useState("Tokens data...");
   const loadingRef = useRef({});
   const cryptoPricesRef = useRef(cryptoPrices);
 
@@ -35,6 +37,7 @@ const TokensInfoProvider = ({
       ...prev,
       [updateTime]: { ...prev[updateTime], [name]: newData },
     }));
+    return newData;
   };
 
   let dayTimer = 0;
@@ -118,13 +121,23 @@ const TokensInfoProvider = ({
         }
         setSelectedToken1(savedList[0]);
         setSelectedToken2(savedList[1]);
-      } finally {
+        setProgress(0.4);
+        setProgressText("Gathering prices...");
+        let headerCryptoNames = ["ETH", "USDT", "BNB", "LINK", "DAI", "WBTC"];
+        for (let [index, name] of headerCryptoNames.entries()) {
+          let data = await initiateCrypto(name, 2000, "histominute");
+          if (data.length === 0) throw new Error("No internet connection");
+
+          setProgress(0.4 + index * 0.1);
+        }
+        setProgress(1);
         setIsReady(true);
-        console.log("Initialization complete");
+      } catch {
+        setProgressText("Error: Check your internet connection");
       }
     };
     loadData();
-    const intervalId = setInterval(updateData, 60000); // Update every minute
+    const intervalId = setInterval(updateData, 60000);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -158,12 +171,8 @@ const TokensInfoProvider = ({
     }
   };
 
-  const stopCrypto = () => {
-    // Implement stop functionality if needed
-  };
-
   if (!isReady) {
-    return <div>Loading...</div>;
+    return <LoadingScreen progress={progress} text={progressText} />;
   }
 
   return (
@@ -171,7 +180,6 @@ const TokensInfoProvider = ({
       value={{
         cryptoPrices,
         newCrypto,
-        stopCrypto,
         isReady,
         erc20Tokens,
         getCryptoPrice,

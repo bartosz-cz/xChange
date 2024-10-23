@@ -19,7 +19,7 @@ function HeaderPricePanel({
   const target = useRef(null);
   const { cryptoPrices, newCrypto, isReady, getCryptoPrice, loadingRef } =
     useCrypto();
-  useEffect(() => {
+  /*useEffect(() => {
     if (!cryptoPrices.histominute[name] && !loadingRef.current[name]) {
       loadingRef.current[name] = true;
       newCrypto(name, 2000, "histominute")
@@ -30,7 +30,7 @@ function HeaderPricePanel({
           loadingRef.current[name] = false;
         });
     }
-  }, []);
+  }, [loadingRef]);*/
 
   useEffect(() => {
     let timestamps = [];

@@ -67,6 +67,30 @@ html,
   box-sizing: border-box;
 }
 
+.progressContainer {
+  @extend .textDark;
+  background-color: var(--appBColor1);
+}
+
+.progress {
+  width: 40%;
+  height: 20px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.progress::-webkit-progress-value {
+  background-color: var(--appColor3);
+}
+
+.progress::-moz-progress-bar {
+  background-color: var(--appColor3);
+}
+
+.progress::-webkit-progress-bar {
+  background-color: var(--appColor4);
+}
+
 .content {
   box-sizing: border-box;
   background-color: transparent;
