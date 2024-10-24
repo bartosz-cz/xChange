@@ -21,7 +21,7 @@ const TokensInfoProvider = ({
   const [erc20Tokens, setErc20Tokens] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [progressText, setProgressText] = useState("Tokens data...");
+  const [progressText, setProgressText] = useState("Gathering tokens data...");
   const loadingRef = useRef({});
   const cryptoPricesRef = useRef(cryptoPrices);
 
@@ -116,6 +116,7 @@ const TokensInfoProvider = ({
           setErc20Tokens(savedList);
         } else {
           savedList = await fetchErc20Tokens();
+          if (savedList.length === 0) throw new Error("No internet connection");
           setErc20Tokens(savedList);
           save("List", savedList);
         }
