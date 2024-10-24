@@ -32,7 +32,11 @@ const TokensInfoProvider = ({
   const initiateCrypto = async (name, range, updateTime) => {
     console.log("Initializing:", name, range, updateTime);
     const newData = await fetchHistoryData(name, range, updateTime);
-
+    if (newData.length === 0) {
+      setProgress(1);
+      setProgressText("Error: Check your internet connection");
+      setIsReady(false);
+    }
     setCryptoPrices((prev) => ({
       ...prev,
       [updateTime]: { ...prev[updateTime], [name]: newData },

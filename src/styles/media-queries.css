@@ -1,7 +1,5 @@
-/* styles/media-queries.css */
 @import "./variables.scss";
 
-/* Responsive Design */
 @media only screen and (max-width: 1475px) {
   #WBTC {
     display: none !important;

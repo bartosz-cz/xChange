@@ -21,17 +21,13 @@ html,
 
 .appHeaderLeft {
   @extend .fillSpace;
-  background: linear-gradient(
-    -45deg,
-    var(--appBColor1) 80px,
-    var(--appBColor2) 80px
-  );
+  background: linear-gradient(-45deg, var(--light) 80px, var(--dark) 80px);
 }
 
 .appHeaderRight {
   width: 100px;
   height: 100%;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
 }
 
 .triangleLeft {
@@ -40,11 +36,7 @@ html,
   z-index: 0;
   height: 2999px;
   width: calc(100% - 214px);
-  background: linear-gradient(
-    -45deg,
-    var(--appBColor2) 2121px,
-    var(--appBColor1) 2121px
-  );
+  background: linear-gradient(-45deg, var(--dark) 2121px, var(--light) 2121px);
 }
 
 .triangleRight {
@@ -54,7 +46,7 @@ html,
   z-index: 0;
   height: 100%;
   width: 214px;
-  background-color: var(--appBColor2);
+  background-color: var(--dark);
 }
 
 .swapData {
@@ -62,14 +54,14 @@ html,
   width: 20%;
   margin: 5px 5px 5px 0;
   border-radius: 0 16px 16px 0;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
   overflow: hidden;
   box-sizing: border-box;
 }
 
 .progressContainer {
   @extend .textDark;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
 }
 
 .progress {
@@ -80,15 +72,15 @@ html,
 }
 
 .progress::-webkit-progress-value {
-  background-color: var(--appColor3);
+  background-color: var(--darkVariant);
 }
 
 .progress::-moz-progress-bar {
-  background-color: var(--appColor3);
+  background-color: var(--darkVariant);
 }
 
 .progress::-webkit-progress-bar {
-  background-color: var(--appColor4);
+  background-color: var(--lightVariant);
 }
 
 .content {

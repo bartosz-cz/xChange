@@ -12,29 +12,29 @@
 }
 
 .button:hover {
-  background-color: var(--appColor3);
-  fill: var(--appColor4);
-  color: var(--appColor4);
+  background-color: var(--darkVariant);
+  fill: var(--lightVariant);
+  color: var(--lightVariant);
 }
 
 .buttonLight {
   @extend .button;
-  background-color: var(--appBColor1);
-  fill: var(--appBColor2);
-  color: var(--appBColor2);
+  background-color: var(--light);
+  fill: var(--dark);
+  color: var(--dark);
 }
 
 .buttonDark {
   @extend .button;
-  background-color: var(--appBColor2);
-  fill: var(--appBColor1);
-  color: var(--appBColor1);
+  background-color: var(--dark);
+  fill: var(--light);
+  color: var(--light);
 }
 
 .buttonActive {
   @extend .button;
-  background-color: var(--appColor3) !important;
-  color: var(--appColor4) !important;
+  background-color: var(--darkVariant) !important;
+  color: var(--lightVariant) !important;
 }
 
 button,
@@ -47,7 +47,7 @@ input {
 
 input::placeholder,
 .inputSubmit::placeholder {
-  color: var(--appColor3);
+  color: var(--darkVariant);
   opacity: 1;
 }
 
@@ -57,15 +57,15 @@ input {
   max-width: 200px;
   height: 40px;
   border-radius: var(--borderRadius, 0 16px 16px 0);
-  background-color: var(--appBColor1);
+  background-color: var(--light);
 }
 
 .input-symbol {
   height: 40px;
   padding: 5px 5px 5px 10px;
   border-radius: 16px 0 0 16px;
-  background-color: var(--appBColor1);
-  fill: var(--appBColor2);
+  background-color: var(--light);
+  fill: var(--dark);
 }
 
 .popUpContainer {
@@ -75,7 +75,7 @@ input {
   box-sizing: border-box;
   padding: 20px;
   min-width: 200px;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
   border-radius: 16px;
 }
 
@@ -103,21 +103,21 @@ input {
   height: 30px;
   padding: 5px;
   background-color: var(--blurColor);
-  color: var(--appBColor1);
+  color: var(--light);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .selectOption:hover {
-  background-color: var(--appColor4);
-  color: var(--appColor3);
+  background-color: var(--darkVariant);
+  color: var(--lightVariant);
 }
 
 .selectedOption {
   width: 100%;
   height: 30px;
   padding: 5px;
-  background-color: var(--blurColor2);
-  color: var(--appBColor1);
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 .swapData {
@@ -125,7 +125,7 @@ input {
   width: 20%;
   margin: 5px 5px 5px 0;
   border-radius: 0 16px 16px 0;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -133,7 +133,7 @@ input {
 .swap {
   width: calc(100% - 10px);
   height: 50px;
-  background-color: var(--appBColor2);
+  background-color: var(--dark);
   border-radius: 16px;
   margin: 5px 10px 0 10px;
 }
@@ -141,8 +141,8 @@ input {
 .swapCreate {
   @extend .contentSize;
   @extend .lightBorder;
-  color: var(--appBColor1);
-  background-color: var(--appBColor2);
+  color: var(--light);
+  background-color: var(--dark);
   border-radius: 16px;
   padding: 10px 15px;
 }
@@ -151,8 +151,8 @@ input {
   @extend .lightBorder;
   height: 100%;
   max-height: calc(100% - 108px);
-  color: var(--appBColor1);
-  background-color: var(--appBColor2);
+  color: var(--light);
+  background-color: var(--dark);
   border-radius: 16px;
   margin-top: 10px;
   padding: 0 20px;
@@ -165,14 +165,14 @@ input {
   width: 100%;
   max-height: 100%;
   margin: 20px 0;
-  background-color: var(--appColor3);
+  background-color: var(--darkVariant);
   border-radius: 16px;
   overflow-y: auto;
   overflow-x: hidden;
   background-image: radial-gradient(
     circle at center,
-    var(--appBColor2) 20%,
-    var(--appColor3) 120%
+    var(--dark) 20%,
+    var(--darkVariant) 120%
   );
 }
 
@@ -195,7 +195,7 @@ input {
   min-height: 270px;
   padding-top: 10px;
   padding-bottom: 8px;
-  background-color: var(--appBColor2);
+  background-color: var(--dark);
   overflow: hidden;
 }
 
@@ -215,7 +215,7 @@ input {
 .tokensSelect {
   height: 45px;
   width: 40px;
-  background-color: var(--appBColor2);
+  background-color: var(--dark);
   position: fixed;
   z-index: 3;
   margin-top: 97px;
@@ -278,13 +278,13 @@ input {
   width: 190px;
   height: 65px;
   margin: 5px;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
   border-radius: 45px;
   z-index: 3;
   padding: 0 7px;
   font-size: x-large;
   font-weight: 800;
-  color: var(--appBColor2);
+  color: var(--dark);
   display: none;
 }
 

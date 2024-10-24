@@ -33,13 +33,13 @@
 
 .textDark {
   @extend .text;
-  color: var(--appBColor2);
+  color: var(--dark);
 }
 
 .textLight {
   @extend .text;
   white-space: nowrap;
-  color: var(--appBColor1);
+  color: var(--light);
 }
 
 .swapText {
@@ -68,17 +68,17 @@
 .custom-scrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #3e214cc6;
-  border-radius: 0px 2px 2px 0px;
+  border-radius: 0 2px 2px 0;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: var(--appBColor1);
+  background-color: var(--light);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .lightBorder {
   border-width: 2px !important;
-  border-color: var(--appBColor1) !important;
+  border-color: var(--light) !important;
   border-style: solid !important;
 }
