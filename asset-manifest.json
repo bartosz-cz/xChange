@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/xChange/static/css/main.b48ba84e.css",
-    "main.js": "/xChange/static/js/main.b1553c88.js",
+    "main.css": "/xChange/static/css/main.ba9b8f38.css",
+    "main.js": "/xChange/static/js/main.40ce103e.js",
     "static/js/453.186ea4ee.chunk.js": "/xChange/static/js/453.186ea4ee.chunk.js",
     "static/media/DAI.svg": "/xChange/static/media/DAI.af467b014a80e4c380282f240ee50fec.svg",
     "static/media/MetamaskLogo.svg": "/xChange/static/media/MetamaskLogo.a8508f8882b243f6dbde5f8aabde3e88.svg",
@@ -27,12 +27,12 @@
     "static/media/Rate.svg": "/xChange/static/media/Rate.123c80854c033e79a251aec368ab305c.svg",
     "static/media/RightArrow.svg": "/xChange/static/media/RightArrow.d45994f9d8d9386c8254e8a940d4cb27.svg",
     "static/media/BackArrow.svg": "/xChange/static/media/BackArrow.c8456aba06b46129c523ace9e0694835.svg",
-    "main.b48ba84e.css.map": "/xChange/static/css/main.b48ba84e.css.map",
-    "main.b1553c88.js.map": "/xChange/static/js/main.b1553c88.js.map",
+    "main.ba9b8f38.css.map": "/xChange/static/css/main.ba9b8f38.css.map",
+    "main.40ce103e.js.map": "/xChange/static/js/main.40ce103e.js.map",
     "453.186ea4ee.chunk.js.map": "/xChange/static/js/453.186ea4ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b48ba84e.css",
-    "static/js/main.b1553c88.js"
+    "static/css/main.ba9b8f38.css",
+    "static/js/main.40ce103e.js"
   ]
 }
