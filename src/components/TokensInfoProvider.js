@@ -111,8 +111,9 @@ const TokensInfoProvider = ({
     const loadData = async () => {
       try {
         let savedList = download("List");
-        if (savedList) {
+        if (savedList.length !== 0) {
           console.log("Data loaded from storage");
+          console.log(savedList);
           setErc20Tokens(savedList);
         } else {
           savedList = await fetchErc20Tokens();
